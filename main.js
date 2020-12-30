@@ -14,9 +14,7 @@ function checkIfWins(player, buttonsArray) {
         if (button.innerHTML != "-") tie = tie + 1;
         result += button.innerHTML; 
     }
-    if (tie >= 9) {
-        return undefined;
-    }
+    
     // Check H:
     for (let h = 0; h < result.length; h+=3) {
         const toTest = result.slice(h, h+3);
@@ -36,6 +34,9 @@ function checkIfWins(player, buttonsArray) {
     {
         const toTest = result[2] + result[4] + result[6];
         if (toTest == toWin) return true;
+    }
+    if (tie >= 9) {
+        return undefined;
     }
     return false;
 }
